@@ -9,6 +9,8 @@ import { ListIncidenciasPageRoutingModule } from './list-incidencias-routing.mod
 
 import { ListIncidenciasPage } from './list-incidencias.page';
 import { CreateIncidenciaComponent } from '../../components/create-incidencia/create-incidencia.component';
+import { DetailIncidenciaComponent } from '../../components/detail-incidencia/detail-incidencia.component';
+import { UpdateIncidenciaComponent } from '../../components/update-incidencia/update-incidencia.component';
 
 @NgModule({
   imports: [
@@ -20,7 +22,9 @@ import { CreateIncidenciaComponent } from '../../components/create-incidencia/cr
   ],
   declarations: [
     ListIncidenciasPage,
-    CreateIncidenciaComponent
+    CreateIncidenciaComponent,
+    DetailIncidenciaComponent,
+    UpdateIncidenciaComponent
   ]
 })
 export class ListIncidenciasPageModule {}

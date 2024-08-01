@@ -57,15 +57,14 @@ export class ListIncidenciasPage implements OnInit {
     }
   }
 
-  async openIncidencia(data: any) {
+  async openIncidencia(data_modal: any) {
     const modal = await this.modalCtrl.create({
       component: DetailIncidenciaComponent,
       componentProps: {
-        'data': data
+        data: data_modal
       }
     });
     modal.present();
-
   }
 
 

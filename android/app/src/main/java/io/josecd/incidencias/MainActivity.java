@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package io.josecd.incidencias;
 
 import com.getcapacitor.BridgeActivity;
 

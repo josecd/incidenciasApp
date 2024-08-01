@@ -12,6 +12,10 @@ export class IncidenciasService {
     return this._httpClient.get(environment.API_URL + '/incidencias/all-incidencias');
   }
 
+  getIncidentesById(id:string) {
+    return this._httpClient.get(environment.API_URL + '/incidencias/all-incidencias-id/'+id);
+  }
+
   detele(id:string){
     return this._httpClient.delete(environment.API_URL + '/incidencias/delete/'+id);
   }

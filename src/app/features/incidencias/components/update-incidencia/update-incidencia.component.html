@@ -1,3 +1,53 @@
-<p>
-  update-incidencia works!
-</p>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start" class="ion-margin-horizontal" (click)="return()">
+      <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+    </ion-buttons>
+    <ion-title>Incidencia</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content  [fullscreen]="true" class="ion-padding">
+<form [formGroup]="incidenciaForm">
+
+  <ion-item lines="full">
+    <ion-label position="floating">Reporte inicial</ion-label>
+    <ion-input formControlName="reporte_inicial" type="text" ></ion-input>
+  </ion-item>
+
+  <ion-item lines="full">
+    <ion-label position="floating">Acciones realizadas</ion-label>
+    <ion-input formControlName="acciones_realiazadas" type="text" ></ion-input>
+  </ion-item>
+
+  <ion-item lines="full">
+    <ion-label position="floating">Estatus final</ion-label>
+    <ion-input formControlName="estatus_final" type="text" ></ion-input>
+  </ion-item>
+
+  <ion-item lines="full">
+    <ion-label position="floating">Causa raiz</ion-label>
+    <ion-input formControlName="causa_raiz" type="text" ></ion-input>
+  </ion-item>
+
+  <ion-item lines="full">
+    <ion-label position="floating">Vale</ion-label>
+    <ion-input formControlName="vale" type="text" ></ion-input>
+  </ion-item>
+
+  <ion-item lines="full">
+    <ion-label position="floating">Observaciones</ion-label>
+    <ion-input formControlName="observaciones" type="text" ></ion-input>
+  </ion-item>
+
+
+
+  <ion-row>
+    <ion-col>
+      <ion-button [disabled]="!incidenciaForm.valid" type="submit" color="danger" expand="block"
+        (click)="submitForm()">Guardar</ion-button>
+    </ion-col>
+  </ion-row>
+</form>
+</ion-content>
