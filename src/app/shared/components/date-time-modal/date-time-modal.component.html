@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" class="ion-margin-horizontal" (click)="return()">
+      <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+    </ion-buttons>
+    <ion-title>Seleccionar</ion-title>
+    <!-- <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">Cerrar</ion-button>
+    </ion-buttons> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form">
+    <ion-item *ngIf="data == 'fecha' "  lines="full">
+      <ion-datetime formControlName="fecha_select" displayFormat="DD/MM/YYYY" fill="outline" presentation="day-month-year"></ion-datetime>
+    </ion-item>
+    <ion-item  *ngIf="data == 'hora' "lines="full">
+      <ion-datetime formControlName="hora_select" displayFormat="HH:mm"  fill="outline" presentation="time"></ion-datetime>
+    </ion-item>
+    <ion-button expand="full" (click)="save()">Guardar</ion-button>
+  </form>
+</ion-content>

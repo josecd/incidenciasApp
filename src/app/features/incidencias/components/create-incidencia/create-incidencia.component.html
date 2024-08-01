@@ -1,0 +1,80 @@
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-buttons slot="start" class="ion-margin-horizontal" (click)="return()">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-buttons>
+      <ion-title>Incidencia</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+<ion-content  [fullscreen]="true" class="ion-padding">
+  <form [formGroup]="incidenciaForm">
+
+
+    <ion-item lines="full">
+      <ion-button (click)="openDateTimeModal('fecha')">Seleccionar Fecha</ion-button>
+    </ion-item> 
+
+    <ion-item lines="full">
+      <ion-label position="floating">Fecha</ion-label>
+      <ion-input formControlName="fecha_select" type="text" ></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-button (click)="openDateTimeModal('hora')">Seleccionar hora</ion-button>
+    </ion-item> 
+
+    <ion-item lines="full">
+      <ion-label position="floating">Hora</ion-label>
+      <ion-input  formControlName="hora_select" type="text" ></ion-input>
+    </ion-item>
+
+
+    <ion-item lines="full" >
+      <ion-label position="floating">Tema</ion-label>
+      <ion-input (click)="presentPopover('Tema','tema')" formControlName="tema" type="text" readonly></ion-input>
+    </ion-item>
+
+    <ion-item lines="full" >
+      <ion-label position="floating">Equipo</ion-label>
+      <ion-input (click)="presentPopover('Equipo','equipo')" formControlName="equipo" type="text" readonly></ion-input>
+    </ion-item>
+
+
+    <ion-item lines="full" >
+      <ion-label position="floating">Ubicación</ion-label>
+      <ion-input (click)="presentPopover('Ubicación','ubicacion')" formControlName="ubicacion" type="text" readonly></ion-input>
+    </ion-item>
+
+
+    <ion-item lines="full">
+      <ion-label position="floating">Descripción del Incidente</ion-label>
+      <ion-input  formControlName="descripcion_incidente" type="text" ></ion-input>
+    </ion-item>
+
+    <ion-item lines="full" >
+      <ion-label position="floating">Recibe reporte</ion-label>
+      <ion-input (click)="presentPopover('Recibe reporte','recibe_reporte')" formControlName="recibe_reporte" type="text" readonly></ion-input>
+    </ion-item>
+
+   
+    <ion-item lines="full">
+      <ion-label position="floating">Quien reporta</ion-label>
+      <ion-input  formControlName="quien_reporta" type="text" ></ion-input>
+    </ion-item>
+
+    <ion-item lines="full" >
+      <ion-label position="floating">Quien realiza</ion-label>
+      <ion-input  (click)="presentPopover('Quien realiza','quien_realiza')" formControlName="quien_realiza" type="text" readonly></ion-input>
+    </ion-item>
+
+
+    <ion-row>
+      <ion-col>
+        <ion-button [disabled]="!incidenciaForm.valid" type="submit" color="danger" expand="block"
+          (click)="submitForm()">Guardar</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

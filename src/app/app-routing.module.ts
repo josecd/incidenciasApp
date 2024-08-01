@@ -10,6 +10,18 @@ const routes: Routes = [
   {
     path: 'folder/:id',
     loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
+  },
+  {
+    path: 'list-incidencias',
+    loadChildren: () => import('./features/incidencias/pages/list-incidencias/list-incidencias.module').then( m => m.ListIncidenciasPageModule)
+  },
+  {
+    path: 'home-list',
+    loadChildren: () => import('./features/home/pages/home-list/home-list.module').then( m => m.HomeListPageModule)
+  },
+  {
+    path: 'user-profile',
+    loadChildren: () => import('./features/user-profile/pages/user-profile/user-profile.module').then( m => m.UserProfilePageModule)
   }
 ];
 

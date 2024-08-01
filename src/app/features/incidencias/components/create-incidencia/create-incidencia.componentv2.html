@@ -1,0 +1,114 @@
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-buttons slot="start" class="ion-margin-horizontal" (click)="return()">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-buttons>
+      <ion-title>Incidencia</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+<ion-content  [fullscreen]="true" class="ion-padding">
+  <form [formGroup]="incidenciaForm">
+
+    <!-- <ion-item lines="full">
+      <ion-datetime formControlName="fecha_select" fill="outline" presentation="day-month-year"></ion-datetime>
+    </ion-item>
+
+
+    <ion-item lines="full">
+      <ion-datetime formControlName="hora_select" fill="outline" presentation="time"></ion-datetime>
+    </ion-item> -->
+
+    <ion-item lines="full">
+      <ion-button (click)="openDateTimeModal('fecha')">Seleccionar Fecha</ion-button>
+    </ion-item> 
+
+    <ion-item lines="full">
+      <ion-label position="floating">Fecha</ion-label>
+      <ion-input fill="outline" formControlName="fecha_select" type="text" ></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-button (click)="openDateTimeModal('hora')">Seleccionar hora</ion-button>
+    </ion-item> 
+
+    <ion-item lines="full">
+      <ion-label position="floating">Hora</ion-label>
+      <ion-input fill="outline"  formControlName="hora_select" type="text" ></ion-input>
+    </ion-item>
+
+
+    <!-- <ion-item lines="full" (click)="presentPopover($event,'Tema')">
+      <ion-label position="floating">Tema</ion-label>
+      <ion-input fill="outline" formControlName="tema" type="text" readonly></ion-input>
+    </ion-item> -->
+
+    <ion-item lines="full">
+      <ion-label position="floating">Tema</ion-label>
+      <ion-select  label-placement="floating" fill="outline" formControlName="tema" (ionChange)="handleChange($event)" >
+        <ion-select-option *ngFor="let catalog of filteredCatalogs('Tema')" [value]="catalog.name">{{ catalog.name
+          }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- <ion-item lines="full">
+      <ion-label position="floating">Tema</ion-label>
+      <ion-button (click)="presentPopover($event)">
+        {{ selectedTema ? selectedTema.name : 'Seleccionar Tema' }}
+      </ion-button>
+    </ion-item> -->
+
+
+    <ion-item lines="full">
+      <ion-label position="floating">Equipo</ion-label>
+      <ion-select label-placement="floating" fill="outline" formControlName="equipo" (ionChange)="handleChange($event)">
+        <ion-select-option *ngFor="let catalog of filteredCatalogs('Equipo')" [value]="catalog.name">{{ catalog.name
+          }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Ubicación</ion-label>
+      <ion-select  label-placement="floating" fill="outline" formControlName="ubicacion" (ionChange)="handleChange($event)">
+        <ion-select-option *ngFor="let catalog of filteredCatalogs('Ubicación')" [value]="catalog.name">{{ catalog.name
+          }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Descripción del Incidente</ion-label>
+      <ion-input fill="outline"  formControlName="descripcion_incidente" type="text" ></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Recibe reporte</ion-label>
+      <ion-select  label-placement="floating" fill="outline" formControlName="recibe_reporte" (ionChange)="handleChange($event)">
+        <ion-select-option *ngFor="let catalog of filteredCatalogs('Recibe reporte')" [value]="catalog.name">{{ catalog.name
+          }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Quien reporta</ion-label>
+      <ion-input fill="outline"  formControlName="quien_reporta" type="text" ></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Quien realiza</ion-label>
+      <ion-select label-placement="floating" fill="outline" formControlName="quien_realiza"
+        (ionChange)="handleChange($event)">
+        <ion-select-option *ngFor="let catalog of filteredCatalogs('Quien realiza')" [value]="catalog.name">{{ catalog.name
+          }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+
+    <ion-row>
+      <ion-col>
+        <ion-button [disabled]="!incidenciaForm.valid" type="submit" color="danger" expand="block"
+          (click)="submitForm()">Guardar</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

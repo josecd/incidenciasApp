@@ -1,0 +1,31 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>Select Tema</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" class="ion-margin-horizontal" (click)="return()">
+      <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+    </ion-buttons>
+    <ion-title>Seleccionar</ion-title>
+    <!-- <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">Cerrar</ion-button>
+    </ion-buttons> -->
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content>
+  <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="filterCatalogs()"></ion-searchbar>
+  <ion-list>
+    <ion-item *ngFor="let catalog of filteredCatalogs" (click)="selectCatalog(catalog)">
+      {{ catalog.name }}
+    </ion-item>
+  </ion-list>
+</ion-content>
